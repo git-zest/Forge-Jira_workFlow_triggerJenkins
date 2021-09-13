@@ -1,0 +1,21 @@
+modules:
+  jira:workflowValidator:
+    - key: pipeline-status-validator-example-workflow-validator
+      function: main
+      name: pipeline_status_validator
+      description: A Jira workflow validator example.
+  function:
+    - key: main
+      handler: index.run
+app:
+  id: ari:cloud:ecosystem::app/af80fbe6-d608-4b65-ad7b-06e77c7f912c
+permissions:
+  scopes:
+    - storage:app
+    - read:jira-work
+    - write:jira-work
+  external:
+    fetch:
+      backend:
+        - "*.ngrok.io"
+        - https://ec2-3-141-166-202.us-east-2.compute.amazonaws.com
